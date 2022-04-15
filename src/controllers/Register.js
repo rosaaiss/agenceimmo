@@ -3,6 +3,7 @@ module.exports = class Register {
     print(request, response) {
         response.render('register/form');
     }
+
     process(request, response) {
         let entity = {
             email: request.body.email || '',
@@ -12,6 +13,7 @@ module.exports = class Register {
             lastname: request.body.lastname || '',
             phone: request.body.phone || ''
         };
+
         let bcrypt = require('bcryptjs');
         entity.password = bcrypt.hashSync(
             entity.password,

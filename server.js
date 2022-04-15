@@ -5,7 +5,7 @@ require('dotenv').config()
 //--------------------------------------------------------------------
 //    Parse DATA
 //--------------------------------------------------------------------
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 //--------------------------------------------------------------------
 //      Mise en place du moteur de template
 //--------------------------------------------------------------------
@@ -37,13 +37,27 @@ app.use(session({
 const flash = require('express-flash-messages');
 app.use(flash());
 // //--------------------------------------------------------------------
-// //    UTILISER SESSION
+// //    UTILISER SESSION ENVOIE DE VARIABLES A PUG
 // //--------------------------------------------------------------------
+// if (process.env.APP_ENV === 'dev') {
+//     app.use((req, res, next) => {
+//         req.session.user = {
+//             email: 'j.doe@yopmail.com',
+//             civility: '1',
+//             firstname: 'John',
+//             lastname: 'Doe',
+//             phone: '0656545859'
+//         };
+//         next();
+//     });
+// }
+
 app.use((req, res, next) => {
     res.locals.session = req.session;
     res.locals.route = req._parsedUrl.pathname;
     next();
 });
+
 //--------------------------------------------------------------------
 //      Mise en place du répertoire static
 //--------------------------------------------------------------------

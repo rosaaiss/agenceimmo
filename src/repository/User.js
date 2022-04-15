@@ -18,16 +18,6 @@ module.exports = class User {
     add(userEntity) {
         return this.db.create(userEntity);
     }
-    // add(userEntity) {
-    //     return new Promise((resolve, reject) => {
-    //         this.db.create(userEntity, function (err, user) {
-    //             if (err) reject(err);
-    //             resolve(user);
-    //         });
-    //     });
-    // }
-
-
 
     emailExists(email) {
         return new Promise((resolve, reject) => {
