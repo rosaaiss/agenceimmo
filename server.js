@@ -39,18 +39,18 @@ app.use(flash());
 // //--------------------------------------------------------------------
 // //    UTILISER SESSION ENVOIE DE VARIABLES A PUG
 // //--------------------------------------------------------------------
-// if (process.env.APP_ENV === 'dev') {
-//     app.use((req, res, next) => {
-//         req.session.user = {
-//             email: 'j.doe@yopmail.com',
-//             civility: '1',
-//             firstname: 'John',
-//             lastname: 'Doe',
-//             phone: '0656545859'
-//         };
-//         next();
-//     });
-// }
+if (process.env.APP_ENV === 'dev') {
+    app.use((req, res, next) => {
+        req.session.user = {
+            email: 'j.doe@yopmail.com',
+            civility: '1',
+            firstname: 'John',
+            lastname: 'Doe',
+            phone: '0656545859'
+        };
+        next();
+    });
+}
 
 app.use((req, res, next) => {
     res.locals.session = req.session;

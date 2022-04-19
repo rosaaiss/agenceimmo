@@ -6,7 +6,7 @@ mongoose.plugin(slug),
     Schema = mongoose.Schema,
     schema = new Schema({
         title: String,
-        slug: { type: String, slug: ['address.zipcode', 'address.city'], unique: true }
+        // slug: { type: String, slug: ['address.zipcode', 'address.city'], unique: true }
     });
 
 const UserSchema = mongoose.Schema({
@@ -31,6 +31,7 @@ const UserSchema = mongoose.Schema({
     room: { type: String },
     type_product: { type: String },
     info_realty: { type: String },
+    slug: { type: String, slug: ['zipcode', 'city'], unique: true }
 
 
 

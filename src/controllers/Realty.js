@@ -1,19 +1,12 @@
 const RepoRealty = require('../repository/RealtyRepository');
 
 module.exports = class Realty {
-    // print(request, response) {
-    //     if (typeof request.session.user !== 'undefined') {
-    //         response.render('admin/realty/list');
-    //         return;
-    //     }
-    //     request.flash('error', `Vous devez être connecté pour accéder à l'administration.`);
-    //     response.redirect('/connexion');
-    // }
+
     print(request, response) {
         if (typeof request.session.user !== 'undefined') {
             let repo = new RepoRealty();
             repo.find().then((realties) => {
-                response.render('admin/realty/list', { realties: [] });
+                response.render('admin/realty/list', { realties });
             });
         } else {
             request.flash('error', `Vous devez être connecté pour accéder à l'administration.`);

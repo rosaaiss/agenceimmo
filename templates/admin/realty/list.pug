@@ -31,18 +31,18 @@ block content
                                     input(data-index=realty._id value=realty._id name="realty[]" type="checkbox")
                                 td  
                                     .dropdown
-                                        a.dropdown-toggle(href="#" role="button" id='dropdown_'+key data-bs-toggle="dropdown" aria-expanded="false") #{realty.contact.firstname} #{realty.contact.lastname}
+                                        a.dropdown-toggle(href="#" role="button" id='dropdown_'+key data-bs-toggle="dropdown" aria-expanded="false") #{realty.firstname} #{realty.lastname}
                                         .dropdown-menu(aria-labelledby='dropdown_'+key)
                                             h6.dropdown-header Contacter
-                                            a.dropdown-item(href="mailto:"+realty.contact.email) Envoyer un mail
-                                            if realty.contact.mobile != ''
-                                                a.dropdown-item(href="tel:"+realty.contact.mobile) Appeler au #{realty.contact.mobile}
-                                            if realty.contact.phone != ''
-                                                a.dropdown-item(href="tel:"+realty.contact.phone) Appeler au #{realty.contact.phone}
+                                            a.dropdown-item(href="mailto:"+realty.email) Envoyer un mail
+                                            if realty.mobile != ''
+                                                a.dropdown-item(href="tel:"+realty.mobile) Appeler au #{realty.mobile}
+                                            if realty.phone != ''
+                                                a.dropdown-item(href="tel:"+realty.phone) Appeler au #{realty.phone}
                                 td
-                                    | #{realty.address.address1}
+                                    | #{realty.address1}
                                     br
-                                    | #{realty.address.zipcode} #{realty.address.city}
+                                    | #{realty.zipcode} #{realty.city}
                                 td
                                     if realty.type == 1 
                                         span Maison #{realty.area}m² - #{realty.room} piece(s)
