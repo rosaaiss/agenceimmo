@@ -1,3 +1,18 @@
 body {
-    background-color: #eb5353
+    background-color: #eb5353;
+}
+
+li a {
+    color: rgb(135, 122, 122);
+    text-decoration: none;
+
+}
+
+ul {
+    list-style-type: none;
+
+}
+
+a:hover {
+    color: #eb5353;
 }
