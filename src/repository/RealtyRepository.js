@@ -45,15 +45,32 @@ module.exports = class Realty {
     add(realtyEntity) {
         return this.db.create(realtyEntity);
     }
-
-    find(search = {}) {
+    edit(id, realtyEntity) {
         return new Promise((resolve, reject) => {
-            this.db.find(search, function (err, realty) {
+            this.db.findOneAndUpdate({ _id: id }, realtyEntity, function (err, realty) {
                 if (err) reject(err);
                 resolve(realty);
             });
         });
     }
+
+    find(search = {}) {
+        return new Promise((resolve, reject) => {
+            this.db.find(search, function (err, realties) {
+                if (err) reject(err);
+                resolve(realties);
+            });
+        });
+    }
+    findById(id) {
+        return new Promise((resolve, reject) => {
+            this.db.findById(id, function (err, realty) {
+                if (err || realty === null) reject();
+                resolve(realty);
+            });
+        });
+    }
+
     delete(filter = {}) {
         return new Promise((resolve, reject) => {
             this.db.deleteOne(filter, function (err) {

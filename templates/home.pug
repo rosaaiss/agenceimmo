@@ -1,8 +1,42 @@
-
 extends layout.pug
  
 block content
    
+    h2(class='active')
+        a(href='#')
+            //- em.fa.fa-home.d-flex.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom &nbsp; Liste des biens
+        .text-center.pt-2.pb-2.mb-3.mt-10.border-bottom
+            h1.h2 Découvrez les nouveautées du moment,<br> véritables havres de paix oû il fait bon vivre !
 
+    .row
+        each realty in realties         
+            .col-sm-4.mt-4
+                .card
+                    if realty.pictures && realty.pictures[0]
+                        img.card-img-top(src=realty.pictures[0], alt="no photo")
+                    else
+                        img.card-img-top(src="images/nophoto.jpg" width="150" height="120" alt="photo")
+                    .card-body
+                        h5.card-title
+                            - var rooms = ''
+                            - var area = ''
+                            if realty.room > 0
+                                - var rooms = ' - '+ realty.room + ' pièce(s)'
+                            if realty.area > 0
+                                - var area =  realty.area + 'm²'  
 
+                            if realty.type == 1 
+                                span Maison #{area} #{rooms}
+                            else if realty.type == 2
+                                span Appartement  #{area} #{rooms}
+                            else if realty.type == 3
+                                span Terrain  #{area}
+                            else if realty.type == 4
+                                span Parking
+                            else if realty.type == 5
+                                span Local / Bureau
+                            else 
+                                span Autre
 
+                        p.card-text #{realty.zipcode} #{realty.city}
+                        a.btn.btn-light(href='/realty/'+realty.id) En savoir plus

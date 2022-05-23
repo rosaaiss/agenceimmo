@@ -1,7 +1,10 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const JwtService = require('./src/services/jwtService.js')
 require('dotenv').config()
+
+
 //--------------------------------------------------------------------
 //    Parse DATA
 //--------------------------------------------------------------------
@@ -32,25 +35,33 @@ app.use(session({
     cookie: { maxAge: 3600000 }
 }));
 //--------------------------------------------------------------------
+//                     CSRF
+//--------------------------------------------------------------------
+require('crypto').createHash('sha1').update(`${new Date().toDateString()}${Math.random()}`).digest('hex').toLowerCase();
+//--------------------------------------------------------------------
 //      Ajout du midlleware express flash messages
 //--------------------------------------------------------------------
 const flash = require('express-flash-messages');
 app.use(flash());
+
+// Récupérer la session grace au JWT
+app.use('/', (new JwtService).connectWithJwt);
+app.use('/admin', (new JwtService).connectAuthAdmin);
 // //--------------------------------------------------------------------
 // //    UTILISER SESSION ENVOIE DE VARIABLES A PUG
 // //--------------------------------------------------------------------
-if (process.env.APP_ENV === 'dev') {
-    app.use((req, res, next) => {
-        req.session.user = {
-            email: 'j.doe@yopmail.com',
-            civility: '1',
-            firstname: 'John',
-            lastname: 'Doe',
-            phone: '0656545859'
-        };
-        next();
-    });
-}
+// if (process.env.APP_ENV === 'dev') {
+//     app.use((req, res, next) => {
+//         req.session.user = {
+//             email: 'j.doe@yopmail.com',
+//             civility: '1',
+//             firstname: 'John',
+//             lastname: 'Doe',
+//             phone: '0656545859'
+//         };
+//         next();
+//     });
+// }
 
 app.use((req, res, next) => {
     res.locals.session = req.session;
