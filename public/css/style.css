@@ -2,9 +2,42 @@ body {
     background-color: #eb5353;
 }
 
+h1 {
+    margin-top: 2rem;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
 h2 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin-top: 3rem;
+}
+
+.card-body .btn {
+    color: #eb5353;
+    background-color: white;
+    border: 1px solid #eb5353;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.card-body .btn:hover {
+    color: white;
+    background-color: #eb5353;
+}
+
+
+.btn {
+    background-color: lightgrey;
+    color: black;
+    border: lightgrey;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.btn:hover {
+    color: #eb5353;
+    background-color: lightgrey;
 }
 
 li a {
@@ -23,34 +56,22 @@ a:hover {
     color: #eb5353;
 }
 
-.btn {
-    background-color: lightgrey;
-    color: black;
-    border: lightgrey;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
 
-.btn:hover {
-    color: #eb5353;
-    background-color: lightgrey;
-}
+/* *****************ANIMATIONS****************** */
 
-.card-body .btn {
-    color: #eb5353;
-    background-color: white;
-    border: 1px solid #eb5353;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
-}
-
-.card-body .btn:hover {
-    color: white;
-    background-color: #eb5353;
-}
 
 h1 {
-    margin-top: 2rem;
-    text-align: center;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    animation: titre ease 3s;
+}
 
+@keyframes titre {
+    0% {
+        opacity: 0;
+        transform: translateY(-180px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }
