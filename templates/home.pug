@@ -6,12 +6,12 @@ block content
         a(href='#')
             //- em.fa.fa-home.d-flex.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom &nbsp; Liste des biens
         .text-center.pt-2.pb-2.mb-3.mt-10.border-bottom
-            h1.h2 Découvrez les nouveautées du moment,<br> véritables havres de paix oû il fait bon vivre !
+            h1.h2 Découvrez les nouveautées du moment,<br> vêritables havres de paix oû il fait bon vîvre !
 
-    .row
+    .row.border-bottom.pb-5.mb-5
         each realty in realties         
             .col-sm-4.mt-4
-                .card
+                .card.bg-light
                     if realty.pictures && realty.pictures[0]
                         img.card-img-top(src=realty.pictures[0], alt="no photo")
                     else

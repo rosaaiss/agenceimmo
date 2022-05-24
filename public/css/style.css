@@ -2,6 +2,11 @@ body {
     background-color: #eb5353;
 }
 
+h2 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-top: 3rem;
+}
+
 li a {
     color: rgb(135, 122, 122);
     text-decoration: none;
@@ -10,9 +15,42 @@ li a {
 
 ul {
     list-style-type: none;
+    padding-left: 0px;
 
 }
 
 a:hover {
     color: #eb5353;
+}
+
+.btn {
+    background-color: lightgrey;
+    color: black;
+    border: lightgrey;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.btn:hover {
+    color: #eb5353;
+    background-color: lightgrey;
+}
+
+.card-body .btn {
+    color: #eb5353;
+    background-color: white;
+    border: 1px solid #eb5353;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.card-body .btn:hover {
+    color: white;
+    background-color: #eb5353;
+}
+
+h1 {
+    margin-top: 2rem;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
 }
